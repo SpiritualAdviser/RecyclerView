@@ -2,6 +2,7 @@ package otus.gpb.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import otus.gpb.recyclerview.chat.ChatAdapter
 import otus.gpb.recyclerview.chat.ChatData
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         val cardsMessages = findViewById<RecyclerView>(R.id.cardsMessages)
         cardsMessages.adapter = chatAdapter
         chatAdapter.createCards(createChatCards())
+
+        cardsMessages.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
     }
 
     private fun createChatCards(): List<ChatData> {
