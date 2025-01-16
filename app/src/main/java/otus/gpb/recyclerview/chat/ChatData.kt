@@ -1,6 +1,7 @@
 package otus.gpb.recyclerview.chat
 
 data class ChatData(
+    var id: Int,
     var avatar: Int,
     var avatarActionIcon: Int,
 

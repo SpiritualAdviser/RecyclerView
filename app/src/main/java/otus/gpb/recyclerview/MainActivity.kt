@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun createChatCards(): List<ChatData> {
         val cards = (1..15).map {
+
             ChatData(
+                id =it,
                 avatar = R.drawable.avatar_1,
                 avatarActionIcon = R.drawable.avatar_action_icon,
                 lockIcon = R.drawable.lock_icon,
