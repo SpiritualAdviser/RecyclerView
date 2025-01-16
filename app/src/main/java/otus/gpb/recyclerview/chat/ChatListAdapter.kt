@@ -1,14 +1,12 @@
 package otus.gpb.recyclerview.chat
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import otus.gpb.recyclerview.R
 
-class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
 
-    private var chatCard = listOf<ChatData>()
+class ChatListAdapter : ListAdapter<ChatData, ChatViewHolder>(ChatDiffutils()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -16,19 +14,12 @@ class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
         return ChatViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return chatCard.size
-    }
-
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        val card = chatCard.getOrNull(position)
-
-        card?.let {
-            holder.bind(it)
-        }
+        holder.bind(getItem(position))
     }
 
-    fun createCards(newCards: List<ChatData>) {
-        chatCard = newCards
+    fun deleteChatCard(position: Int) {
+        val newChatList = currentList.filterIndexed { index, chatData -> index != position }
+        this.submitList(newChatList)
     }
 }
