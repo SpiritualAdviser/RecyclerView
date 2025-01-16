@@ -1,8 +1,8 @@
-package otus.gpb.recyclerview
+package otus.gpb.recyclerview.chat
 
-data class Chat(
+data class ChatData(
     var avatar: Int,
-    var avatarActionIcon: Boolean,
+    var avatarActionIcon: Int,
 
     var lockIcon: Int,
     val title: String,
