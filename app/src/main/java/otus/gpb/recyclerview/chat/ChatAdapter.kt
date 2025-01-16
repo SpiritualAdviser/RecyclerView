@@ -28,9 +28,7 @@ class ChatAdapter : RecyclerView.Adapter<ChatViewHolder>() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun createCards(newCards: List<ChatData>) {
         chatCard = newCards
-      notifyDataSetChanged()
     }
 }
