@@ -6,16 +6,34 @@
     android:layout_height="80dp">
 
 
-    <ImageView
-        android:id="@+id/avatar"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
+    <FrameLayout
+        android:id="@+id/avatarBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:contentDescription="@string/avatar"
-        android:src="@drawable/avatar_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:contentDescription="@string/avatar"
+            android:src="@drawable/avatar_1" />
+
+        <ImageView
+            android:id="@+id/avatarActionIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end|bottom"
+            android:padding="2dp"
+            android:contentDescription="@string/avatar_action_icon"
+            android:background="@drawable/border_image"
+            android:src="@drawable/avatar_action_icon"
+            />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/TextBlock"
@@ -24,11 +42,10 @@
         android:layout_marginStart="11dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintStart_toEndOf="@+id/avatarBlock"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -55,8 +72,8 @@
                 android:id="@+id/verifiedIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
                 android:contentDescription="@string/lock_icon"
                 android:src="@drawable/verified_icon" />
         </ LinearLayout>
@@ -106,6 +123,7 @@
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
+            android:id="@+id/checkIcon"
             android:layout_width="12dp"
             android:layout_height="8dp"
             android:layout_gravity="center_vertical"
@@ -113,6 +131,7 @@
             android:src="@drawable/check_icon" />
 
         <TextView
+            android:id="@+id/timeService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -126,10 +145,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="13dp"
-        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarBlock"
         app:layout_constraintEnd_toEndOf="parent">
 
         <FrameLayout
+            android:id="@+id/mentionBlock"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="7dp"
@@ -146,6 +166,7 @@
         </FrameLayout>
 
         <ImageView
+            android:id="@+id/pinnedIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
